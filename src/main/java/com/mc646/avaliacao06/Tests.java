@@ -51,4 +51,30 @@ public class Tests {
 		
 		Assert.assertEquals(1, fileOpeneds.getCountFileByName("files/File01.txt"));
 	}
+	
+	/**
+	 * Se a lista alcança seu limite (normalmente de 10 a 15 itens na lista), 
+	 * o item mais antigo é removido quando um novo item é adicionado.
+	 * **/
+	@Test
+	@Order(3)
+	public void Test_Tdd_04() {
+		FileOpeneds.File oldestFile = null;
+		
+		fileOpeneds.openFile("files/File01.txt");
+		fileOpeneds.openFile("files/File02.txt");
+		fileOpeneds.openFile("files/File03.txt");
+		fileOpeneds.openFile("files/File04.txt");
+		fileOpeneds.openFile("files/File05.txt");
+		fileOpeneds.openFile("files/File06.txt");
+		fileOpeneds.openFile("files/File07.txt");
+		fileOpeneds.openFile("files/File08.txt");
+		fileOpeneds.openFile("files/File09.txt");
+		fileOpeneds.openFile("files/File10.txt");
+		oldestFile = fileOpeneds.openFile("files/File11.txt");
+		
+		Assert.assertEquals(10, fileOpeneds.getCountFile());
+		
+		Assert.assertEquals("files/File01.txt", oldestFile.getName());
+	}
 }
