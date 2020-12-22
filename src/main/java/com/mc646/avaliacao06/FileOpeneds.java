@@ -107,5 +107,10 @@ public class FileOpeneds {
 	public File getTop() {
 		return files.get(files.size()-1);
 	}
+
+
+	public void empty() {
+		files.clear();
+	}
 	
 }

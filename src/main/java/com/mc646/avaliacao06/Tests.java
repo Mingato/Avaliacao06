@@ -92,5 +92,4 @@ public class Tests {
 		Assert.assertEquals(0, fileOpeneds.getCountFile());
 	}
 	
-	
 }
