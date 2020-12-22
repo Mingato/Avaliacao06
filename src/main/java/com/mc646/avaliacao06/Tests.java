@@ -80,4 +80,17 @@ public class Tests {
 		Assert.assertNotNull(oldestFile);
 		Assert.assertEquals("files/File01.txt", oldestFile.getName());
 	}
+	
+	/**
+	 * A lista pode ser esvaziada a qualquer momento 
+	 * **/
+	@Test
+	@Order(4)
+	public void Test_Tdd_05() {
+		fileOpeneds.empty();
+		
+		Assert.assertEquals(0, fileOpeneds.getCountFile());
+	}
+	
+	
 }
