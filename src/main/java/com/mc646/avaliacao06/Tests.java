@@ -16,6 +16,8 @@ public class Tests {
 	@Order(0)
 	public void Test_Tdd_01() {
 		
-		Assert.assertEquals(0, fileOpeneds.getFiles().size());
+		Assert.assertEquals(0, fileOpeneds.getFileCount());
 	}
+	
+	
 }

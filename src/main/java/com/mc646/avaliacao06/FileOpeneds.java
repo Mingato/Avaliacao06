@@ -22,10 +22,16 @@ public class FileOpeneds {
 		this.files = files;
 	}
 
-
+	public int getFileCount() {
+		return this.files.size();
+	}
+	
 	public class File{
 		
 		
 
 	}
+
+
+	
 }
