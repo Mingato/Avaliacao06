@@ -1,9 +1,9 @@
 package com.mc646.avaliacao06;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Order;
 
-import junit.framework.Assert;
 
 public class Tests {
 
