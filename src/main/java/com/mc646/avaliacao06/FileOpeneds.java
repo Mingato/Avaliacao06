@@ -41,16 +41,16 @@ public class FileOpeneds {
 		}
 		
 		try {
-			reader = new BufferedReader(new FileReader(filename));
-			
-			this.files.add(new File(filename, reader));
-			
-			if(getCountFileByName(filename) > 1) {
-				deleteFile(filename);
-			}
-			
-			if(files.size() > MAX_FILES) {
-				return files.remove(0);
+			if(getCountFileByName(filename) > 0) {
+				MoveFileToTop(filename);
+			}else {
+				reader = new BufferedReader(new FileReader(filename));
+				
+				this.files.add(new File(filename, reader));
+				
+				if(files.size() > MAX_FILES) {
+					return files.remove(0);
+				}
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -59,6 +59,19 @@ public class FileOpeneds {
 		return null;
 	}
 	
+	private void MoveFileToTop(String filename) {
+		int index = -1;
+		for(File file: files) {
+			index++;
+			if(file.getName().equalsIgnoreCase(filename)) {
+				File fileToMove = files.remove(index);
+				files.add(fileToMove);
+				return;
+			}
+		}
+	}
+
+
 	public void deleteFile(String filename) {
 		int index = -1;
 		for(File file: files) {
@@ -112,7 +125,6 @@ public class FileOpeneds {
 	}
 
 	public File getTop() {
-		System.out.println(files.size());
 		return files.get(files.size()-1);
 	}
 
