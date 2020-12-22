@@ -26,11 +26,21 @@ public class FileOpeneds {
 		return this.files.size();
 	}
 	
-	public class File{
+	public void openFile(String string) {
+		this.files.add(new File());
 		
-		
-
 	}
+	
+	public class File{
+
+		public String getName() {
+			return "files/File01.txt";
+		}
+		
+		
+	}
+
+	
 
 
 	
