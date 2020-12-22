@@ -92,4 +92,25 @@ public class Tests {
 		Assert.assertEquals(0, fileOpeneds.getCountFile());
 	}
 	
+	/**
+	 * A atualização da lista pode ser desabilitada/habilitada. 
+	 * Caso seja desabilitada, os arquivos já existentes ficarão na lista, 
+	 * mas não serão adicionados novos arquivos.
+	 * **/
+	@Test
+	@Order(5)
+	public void Test_Tdd_06() {
+		fileOpeneds.disable();
+		
+		fileOpeneds.openFile("files/File01.txt");
+		
+		Assert.assertEquals("files/File11.txt", fileOpeneds.getTop().getName());
+		
+		fileOpeneds.enable();
+		
+		fileOpeneds.openFile("files/File01.txt");
+		
+		Assert.assertEquals("files/File01.txt", fileOpeneds.getTop().getName());
+	}
+	
 }
