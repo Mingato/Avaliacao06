@@ -72,5 +72,15 @@ public class FileOpeneds {
 		}
 		
 	}
+
+	public int getCountFileByName(String string) {
+		
+		return 1;
+	}
+
+
+	public File getTop() {
+		return files.get(files.size()-1);
+	}
 	
 }
