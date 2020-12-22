@@ -9,7 +9,10 @@ import java.util.List;
 public class FileOpeneds {
 
 	private List<File> files;
+	
 	private final int MAX_FILES = 10;
+	
+	private boolean enabled = true;
 	
 	public FileOpeneds() {
 		super();
@@ -32,6 +35,10 @@ public class FileOpeneds {
 	
 	public File openFile(String filename) {
 		BufferedReader reader;
+		
+		if(!enabled) {
+			return null;
+		}
 		
 		try {
 			reader = new BufferedReader(new FileReader(filename));
@@ -105,12 +112,22 @@ public class FileOpeneds {
 	}
 
 	public File getTop() {
+		System.out.println(files.size());
 		return files.get(files.size()-1);
 	}
 
 
 	public void empty() {
 		files.clear();
+	}
+
+
+	public void enable() {
+		this.enabled = true;
+	}
+
+	public void disable() {
+		this.enabled = false;
 	}
 	
 }

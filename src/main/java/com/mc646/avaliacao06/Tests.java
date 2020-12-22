@@ -100,11 +100,16 @@ public class Tests {
 	@Test
 	@Order(5)
 	public void Test_Tdd_06() {
-		fileOpeneds.disable();
+		fileOpeneds.enable();
 		
 		fileOpeneds.openFile("files/File01.txt");
+		fileOpeneds.openFile("files/File02.txt");
 		
-		Assert.assertEquals("files/File11.txt", fileOpeneds.getTop().getName());
+		fileOpeneds.disable();
+		
+		fileOpeneds.openFile("files/File03.txt");
+		
+		Assert.assertEquals("files/File02.txt", fileOpeneds.getTop().getName());
 		
 		fileOpeneds.enable();
 		
