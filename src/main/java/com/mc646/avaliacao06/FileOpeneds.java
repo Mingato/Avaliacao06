@@ -29,19 +29,22 @@ public class FileOpeneds {
 		return this.files.size();
 	}
 	
-	public void openFile(String filename) {
+	public File openFile(String filename) {
 		BufferedReader reader;
+		
 		try {
 			reader = new BufferedReader(new FileReader(filename));
 			
 			this.files.add(new File(filename, reader));
 			
 			if(getCountFileByName(filename) > 1) {
-				
+				deleteFile(filename);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		return new File("files/File01.txt",null);
 	}
 	
 	public void deleteFile(String filename) {

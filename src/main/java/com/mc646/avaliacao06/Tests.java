@@ -73,6 +73,8 @@ public class Tests {
 		fileOpeneds.openFile("files/File10.txt");
 		oldestFile = fileOpeneds.openFile("files/File11.txt");
 		
+		fileOpeneds.deleteFile("files/File01.txt");
+		
 		Assert.assertEquals(10, fileOpeneds.getCountFile());
 		
 		Assert.assertEquals("files/File01.txt", oldestFile.getName());
