@@ -25,7 +25,7 @@ public class FileOpeneds {
 		this.files = files;
 	}
 
-	public int getFileCount() {
+	public int getCountFile() {
 		return this.files.size();
 	}
 	
