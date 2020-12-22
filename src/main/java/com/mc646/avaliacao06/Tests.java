@@ -19,5 +19,16 @@ public class Tests {
 		Assert.assertEquals(0, fileOpeneds.getFileCount());
 	}
 	
-	
+	/**
+	 * Quando um arquivo é aberto, ele é adicionado à lista de arquivos recentes;
+	 * **/
+	@Test
+	@Order(1)
+	public void Test_Tdd_02() {
+		fileOpeneds.openFile("files/File01.txt");
+		
+		Assert.assertEquals(1, fileOpeneds.getFileCount());
+		
+		Assert.assertEquals("files/File01.txt", fileOpeneds.getFiles().get(0).getName());
+	}
 }
