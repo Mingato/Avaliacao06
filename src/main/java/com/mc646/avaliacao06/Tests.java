@@ -77,6 +77,7 @@ public class Tests {
 		
 		Assert.assertEquals(10, fileOpeneds.getCountFile());
 		
+		Assert.assertNotNull(oldestFile);
 		Assert.assertEquals("files/File01.txt", oldestFile.getName());
 	}
 }

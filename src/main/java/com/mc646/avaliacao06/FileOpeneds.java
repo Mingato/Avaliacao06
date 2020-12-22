@@ -9,7 +9,8 @@ import java.util.List;
 public class FileOpeneds {
 
 	private List<File> files;
-
+	private final int MAX_FILES = 10;
+	
 	public FileOpeneds() {
 		super();
 		this.setFiles(new ArrayList<File>());
@@ -40,11 +41,15 @@ public class FileOpeneds {
 			if(getCountFileByName(filename) > 1) {
 				deleteFile(filename);
 			}
+			
+			if(files.size() > MAX_FILES) {
+				return files.remove(0);
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		return new File("files/File01.txt",null);
+		return null;
 	}
 	
 	public void deleteFile(String filename) {
