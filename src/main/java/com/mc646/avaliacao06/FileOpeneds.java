@@ -35,13 +35,25 @@ public class FileOpeneds {
 			reader = new BufferedReader(new FileReader(filename));
 			
 			this.files.add(new File(filename, reader));
+			
+			if(getCountFileByName(filename) > 1) {
+				
+			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
+	}
+	
+	public void deleteFile(String filename) {
+		int index = -1;
+		for(File file: files) {
+			index++;
+			if(file.getName().equalsIgnoreCase(filename)) {
+				files.remove(index);
+				return;
+			}
+			
+		}
 	}
 	
 	public class File{
@@ -73,11 +85,16 @@ public class FileOpeneds {
 		
 	}
 
-	public int getCountFileByName(String string) {
+	public int getCountFileByName(String filename) {
+		int count = 0;
+		for(File file: files) {
+			if(file.getName().equalsIgnoreCase(filename)) {
+				count++;
+			}
+		}
 		
-		return 1;
+		return count;
 	}
-
 
 	public File getTop() {
 		return files.get(files.size()-1);
